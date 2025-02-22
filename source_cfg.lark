@@ -1,0 +1,20 @@
+start: [WS_INLINE* statement (WS_INLINE* TERMINATOR WS* statement)*]
+
+statement: comment | (cmd WS_INLINE* comment?)
+
+cmd: CVAR (WS_INLINE+ param)*
+param: BOOL | NUMBER | CVAR | ESCAPED_STRING
+
+CVAR: ("+" | "-" )? /(([a-z]+)_?)+/
+BOOL: "true" | "false"
+TERMINATOR: NEWLINE | ";"
+
+comment: "//" TEXT?
+TEXT: /.+/
+
+%import common.NUMBER
+%import common.NEWLINE
+%import common.WS
+%import common.WS_INLINE
+%import common.ESCAPED_STRING
+%import common.CPP_COMMENT
