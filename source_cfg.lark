@@ -17,4 +17,3 @@ TEXT: /.+/
 %import common.WS
 %import common.WS_INLINE
 %import common.ESCAPED_STRING
-%import common.CPP_COMMENT
