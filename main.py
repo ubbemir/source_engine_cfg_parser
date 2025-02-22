@@ -16,7 +16,7 @@ def main():
 
     with open("source_cfg.lark", "r") as file:
         cfg_grammar = file.read()
-    cfg_parser = Lark(cfg_grammar, parser='earley')
+    cfg_parser = Lark(cfg_grammar, parser="earley")
 
 
     with open(args.input_file, "r") as file:
