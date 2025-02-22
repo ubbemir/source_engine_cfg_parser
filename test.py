@@ -1,5 +1,5 @@
 from lark import Lark, Transformer, v_args
-
+import formatters
 
 with open("source_cfg.lark", "r") as file:
     cfg_grammar = file.read()
@@ -7,8 +7,10 @@ with open("source_cfg.lark", "r") as file:
 cfg_parser = Lark(cfg_grammar, parser='earley')
 
 
-with open("input.cfg", "r") as file:
+with open("input2.cfg", "r") as file:
     cfg_input = file.read()
 
 
-print(cfg_parser.parse(cfg_input).pretty())
+parse_tree = cfg_parser.parse(cfg_input)
+
+print(formatters.prettify_cfg(parse_tree))

@@ -1,1 +1,4 @@
 *.cfg
+*.txt
+
+__pycache__
