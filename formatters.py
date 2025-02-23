@@ -1,4 +1,5 @@
-from lark import Tree, Token
+from lark import Token, Tree
+
 
 def minify_cfg(tree) -> str:
     final_str = ""
