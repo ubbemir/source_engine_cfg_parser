@@ -9,7 +9,7 @@ def main():
     parser = argparse.ArgumentParser(
                     prog="Source Engine CFG Formatter",
                     description="Formats CFG files from source engine games.")
-    
+
     parser.add_argument("input_file", help="input file to be formatted")
     parser.add_argument("-m", "--minify", help="minify instead of beutify",
                     action="store_true")
