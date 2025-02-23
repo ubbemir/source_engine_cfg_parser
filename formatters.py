@@ -9,16 +9,16 @@ def minify_cfg(tree) -> str:
             for s_child in statement.children:
                 if isinstance(s_child, Tree):
                     if s_child.data == "cmd":
-                        str = ""
+                        result = ""
                         for c in s_child.children:
                             if isinstance(c, Token) and c.type == "CVAR":
-                                str += c.value
+                                result += c.value
                             elif isinstance(c, Tree):
                                 for param in c.children:
-                                    str += " " + param.value
+                                    result += " " + param.value
                                 
 
-                        final_str += str + ";"
+                        final_str += result + ";"
 
     return final_str[:-1]
 
@@ -30,15 +30,15 @@ def prettify_cfg(tree) -> str:
             for s_child in statement.children:
                 if isinstance(s_child, Tree):
                     if s_child.data == "cmd":
-                        str = ""
+                        result = ""
                         for c in s_child.children:
                             if isinstance(c, Token) and c.type == "CVAR":
-                                str += c.value
+                                result += c.value
                             elif isinstance(c, Tree):
                                 for param in c.children:
-                                    str += " " + param.value
+                                    result += " " + param.value
                                 
 
-                        final_str += str + "\n"
+                        final_str += result + "\n"
 
     return final_str[:-1]
