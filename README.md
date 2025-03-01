@@ -7,7 +7,7 @@ Install with `pip install lark`
 
 # Example Usage:
 Format *input.cfg* file to an easily readable format:
-`python main.py input.cfg`
+`python -m src.main input.cfg`
 
 Format *input.cfg* file to a one line command:
-`python main.py input.cfg -m`
+`python -m src.main input.cfg -m`
