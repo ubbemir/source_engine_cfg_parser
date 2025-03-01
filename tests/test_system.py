@@ -1,8 +1,9 @@
 import unittest
 
+from lark import Lark
+
 import src.formatters as formatters
 
-from lark import Lark
 
 def get_parser():
     with open("source_cfg.lark", "r") as file:
