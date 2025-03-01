@@ -2,7 +2,7 @@ import argparse
 
 from lark import Lark
 
-import formatters
+import src.formatters as formatters
 
 
 def main():
