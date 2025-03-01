@@ -1,4 +1,4 @@
-start: [WS_INLINE* statement (WS_INLINE* TERMINATOR WS* statement)*]
+start: [WS* statement (WS_INLINE* TERMINATOR WS* statement)* WS*]
 
 statement: comment | (cmd WS_INLINE* comment?)
 
