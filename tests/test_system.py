@@ -27,10 +27,10 @@ class TestFormatter(unittest.TestCase):
             bot_kick   
 
                
-            sv_cheats 1  
+            sv_cheats 1
              
             
-            mp_restartgame 1;   
+            mp_restartgame 1
 
 
 
