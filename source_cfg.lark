@@ -3,16 +3,16 @@ start: [WS* statement (WS_INLINE* TERMINATOR WS* [statement])* WS*]
 statement: comment | (cmd WS_INLINE* comment?)
 
 cmd: CVAR (WS_INLINE+ param)*
-param: BOOL | NUMBER | CVAR | ESCAPED_STRING
+param: BOOL | SIGNED_NUMBER | CVAR | ESCAPED_STRING
 
-CVAR: ("+" | "-" )? /(([a-z]+)_?)+/
+CVAR: ("+" | "-" )? /(([a-z0-9]+)_?)+/
 BOOL: "true" | "false"
 TERMINATOR: NEWLINE | ";"
 
 comment: "//" TEXT?
 TEXT: /.+/
 
-%import common.NUMBER
+%import common.SIGNED_NUMBER
 %import common.NEWLINE
 %import common.WS
 %import common.WS_INLINE
