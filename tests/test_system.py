@@ -60,8 +60,11 @@ class TestFormatter(unittest.TestCase):
                 content = file.read()
 
             # Just ensure they parse without failure
-            formatters.minify_cfg(get_parser().parse(content))
-            formatters.prettify_cfg(get_parser().parse(content))
+            try:
+                formatters.minify_cfg(get_parser().parse(content))
+                formatters.prettify_cfg(get_parser().parse(content))
+            except Exception as e:
+                self.fail(f"Failure in file {file_name}")
 
 
 
