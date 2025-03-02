@@ -1,4 +1,6 @@
 import unittest
+from os import listdir
+from os.path import isfile, join
 
 from lark import Lark
 
@@ -48,6 +50,20 @@ class TestFormatter(unittest.TestCase):
         """
         minified = formatters.minify_cfg(get_parser().parse(test_input))
         self.assertEqual(minified, """bind "mouse4" "+jump;+right";sv_cheats 1;mp_restartgame 1 "apart of the previous";bot_kick""")
+
+    def test_cfg_files(self):
+        path = "tests/cfg"
+        files = [f for f in listdir(path) if isfile(join(path, f))]
+
+        for file_name in files:
+            with open(join(path, file_name), "r") as file:
+                content = file.read()
+
+            # Just ensure they parse without failure
+            formatters.minify_cfg(get_parser().parse(content))
+            formatters.prettify_cfg(get_parser().parse(content))
+
+
 
 if __name__ == "__main__":
     unittest.main()
