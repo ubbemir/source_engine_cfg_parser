@@ -63,7 +63,7 @@ class TestFormatter(unittest.TestCase):
             try:
                 formatters.minify_cfg(get_parser().parse(content))
                 formatters.prettify_cfg(get_parser().parse(content))
-            except Exception as e:
+            except Exception:
                 self.fail(f"Failure in file {file_name}")
 
 
