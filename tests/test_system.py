@@ -47,9 +47,10 @@ class TestFormatter(unittest.TestCase):
             bind "mouse4" "+jump;+right";;
             sv_cheats 1; mp_restartgame 1 "apart of the previous" // comment not present;;;;;;;
             bot_kick;;
+            bind "space" +jump
         """
         minified = formatters.minify_cfg(get_parser().parse(test_input))
-        self.assertEqual(minified, """bind "mouse4" "+jump;+right";sv_cheats 1;mp_restartgame 1 "apart of the previous";bot_kick""")
+        self.assertEqual(minified, """bind "mouse4" "+jump;+right";sv_cheats 1;mp_restartgame 1 "apart of the previous";bot_kick;bind "space" +jump""")
 
     def test_cfg_files(self):
         path = "tests/cfg"
