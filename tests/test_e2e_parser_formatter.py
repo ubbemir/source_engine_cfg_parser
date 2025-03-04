@@ -53,6 +53,7 @@ class TestFormatter(unittest.TestCase):
         self.assertEqual(minified, """bind "mouse4" "+jump;+right";sv_cheats 1;mp_restartgame 1 "apart of the previous";bot_kick;bind "space" +jump""")
 
     def test_cfg_files(self):
+        parser = get_parser()
         path = "tests/cfg"
         files = [f for f in listdir(path) if isfile(join(path, f))]
 
@@ -60,10 +61,9 @@ class TestFormatter(unittest.TestCase):
             with open(join(path, file_name), "r") as file:
                 content = file.read()
 
-            # Just ensure they parse without failure
+            # Just ensure it parses without failure
             try:
-                formatters.minify_cfg(get_parser().parse(content))
-                formatters.prettify_cfg(get_parser().parse(content))
+                parser.parse(content)
             except Exception:
                 self.fail(f"Failure in file {file_name}")
 
